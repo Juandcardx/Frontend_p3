@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-pirate: "Pirata One", cursive;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --color-ocean-deep: #050d1a;
+  --color-ocean: #0c1f3d;
+  --color-ocean-mid: #15325c;
+  --color-parchment: #f2e6c8;
+  --color-parchment-dark: #dcc99a;
+  --color-ink: #2c1810;
+  --color-gold: #d4a017;
+  --color-gold-bright: #ffd95a;
+  --color-blood: #7f1010;
+  --color-blood-dark: #4a0808;
+  --color-wood: #2a1810;
+  --color-wood-light: #4a3020;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: #e8dcc8;
+  background-color: var(--color-ocean-deep);
+}
+
+/* Fondo: mar de noche + ondas */
+.pirate-ocean-bg {
+  background-color: var(--color-ocean-deep);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, #1a4a7a55 0%, transparent 55%),
+    radial-gradient(ellipse 80% 50% at 80% 100%, #0d284455 0%, transparent 50%),
+    repeating-linear-gradient(
+      -3deg,
+      transparent,
+      transparent 48px,
+      #ffffff03 48px,
+      #ffffff03 49px
+    ),
+    linear-gradient(180deg, #050d1a 0%, #0c1f3d 40%, #081628 100%);
+  min-height: 100vh;
+}
+
+/* Barra superior estilo casco de barco */
+.pirate-navbar {
+  background: linear-gradient(180deg, #1a0f08 0%, #2a1810 55%, #1a0f08 100%);
+  border-bottom: 3px solid var(--color-gold);
+  box-shadow:
+    0 4px 20px #00000088,
+    inset 0 1px 0 #ffffff15;
+}
+
+.pirate-title {
+  font-family: var(--font-pirate);
+  letter-spacing: 0.04em;
+  text-shadow: 2px 2px 0 #00000066;
+}
+
+/* Panel lateral: madera de barco */
+.pirate-sidebar {
+  background: linear-gradient(165deg, #3d2817 0%, #2a1810 45%, #1f120a 100%);
+  border-right: 3px solid var(--color-gold);
+  box-shadow: 4px 0 24px #00000055;
+}
+
+.pirate-sidebar h2 {
+  font-family: var(--font-pirate);
+}
+
+.pirate-input {
+  background: #f2e6c8ee;
+  color: var(--color-ink);
+  border: 2px solid #8b6914;
+  border-radius: 4px;
+  font-family: var(--font-body);
+}
+
+.pirate-input:focus {
+  outline: none;
+  border-color: var(--color-gold-bright);
+  box-shadow: 0 0 0 3px #d4a01744;
+}
+
+.pirate-input::placeholder {
+  color: #6b5344aa;
+}
+
+/* Botones */
+.pirate-btn-gold {
+  background: linear-gradient(180deg, #ffd95a 0%, #c9a227 50%, #8b6914 100%);
+  color: var(--color-ink);
+  border: 2px solid #5c4a10;
+  font-family: var(--font-pirate);
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 0 #ffffff44;
+  box-shadow: 0 3px 0 #3d2817, 0 4px 12px #00000044;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.pirate-btn-gold:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #3d2817, 0 6px 16px #00000055;
+}
+
+.pirate-btn-gold:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #3d2817;
+}
+
+.pirate-btn-wood {
+  background: linear-gradient(180deg, #5c4030 0%, #3d2817 100%);
+  color: #f2e6c8;
+  border: 2px solid #2a1810;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.pirate-btn-wood:hover:not(:disabled) {
+  background: linear-gradient(180deg, #6d5040 0%, #4a3020 100%);
+}
+
+.pirate-btn-action {
+  background: linear-gradient(180deg, #a31818 0%, #6b0f0f 100%);
+  color: #ffe8a8;
+  border: 2px solid #4a0808;
+  font-family: var(--font-pirate);
+  letter-spacing: 0.03em;
+}
+
+.pirate-btn-action:hover {
+  background: linear-gradient(180deg, #c42020 0%, #8b1515 100%);
+}
+
+/* Tabla: libro de recompensas */
+.pirate-table-wrap {
+  background: linear-gradient(145deg, #1a2840ee 0%, #0f1a2eee 100%);
+  border: 3px solid var(--color-gold);
+  border-radius: 8px;
+  box-shadow:
+    0 8px 32px #00000066,
+    inset 0 0 60px #00000033;
+  overflow: hidden;
+}
+
+.pirate-table thead {
+  background: linear-gradient(180deg, #2a1810 0%, #1a0f08 100%);
+  font-family: var(--font-pirate);
+  letter-spacing: 0.06em;
+  color: var(--color-gold-bright);
+}
+
+.pirate-table tbody tr {
+  border-bottom: 1px solid #d4a01733;
+  transition: background 0.2s;
+}
+
+.pirate-table tbody tr:hover {
+  background: #ffffff08;
+}
+
+.pirate-table tbody tr:nth-child(even) {
+  background: #00000022;
+}
+
+.pirate-tag-crew {
+  background: linear-gradient(135deg, #6b0f0f 0%, #4a0808 100%);
+  color: #ffe8a8;
+  border: 1px solid #d4a01766;
+  font-size: 0.7rem;
+}
+
+/* Cartel SE BUSCA */
+.wanted-poster {
+  background:
+    radial-gradient(circle at 20% 10%, #ffffff22 0%, transparent 40%),
+    linear-gradient(175deg, #f8edd4 0%, #e8d4a8 35%, #dcc99a 100%);
+  color: var(--color-ink);
+  border: 4px solid #2c1810;
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 2px #8b6914,
+    0 12px 40px #00000088,
+    inset 0 0 80px #8b691422;
+  position: relative;
+}
+
+.wanted-poster::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed #8b691488;
+  pointer-events: none;
+  border-radius: 1px;
+}
+
+.wanted-header {
+  font-family: var(--font-pirate);
+  font-size: 1.75rem;
+  color: var(--color-blood);
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-shadow: 1px 1px 0 #00000022;
+  border-bottom: 3px double var(--color-blood);
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.wanted-sub {
+  font-family: var(--font-pirate);
+  font-size: 0.85rem;
+  color: #5c4030;
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+.wanted-bounty {
+  font-family: var(--font-pirate);
+  font-size: 1.35rem;
+  color: var(--color-blood);
+  text-align: center;
+  background: #2c181008;
+  border: 2px solid #8b6914;
+  padding: 0.35rem 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.wanted-stat {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  border-bottom: 1px dotted #8b691466;
+  padding: 0.2rem 0;
+}
+
+.wanted-stat span:first-child {
+  color: #5c4030;
+  font-weight: 600;
+}
+
+/* Paginación */
+.pirate-pagination {
+  font-family: var(--font-body);
+}
+
+.pirate-pagination button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Decoración: cuerda */
+.rope-border-top {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #8b6914 0px,
+    #c9a227 4px,
+    #5c4a10 8px,
+    #c9a227 12px
+  );
+}
+
+/* Animación suave al cargar cartel */
+@keyframes poster-in {
+  from {
+    opacity: 0;
+    transform: rotate(-1deg) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0.5deg) scale(1);
+  }
+}
+
+.wanted-poster-animate {
+  animation: poster-in 0.35s ease-out;
+}
+
+/* Loading */
+.pirate-loading {
+  font-family: var(--font-pirate);
+  color: var(--color-gold-bright);
+  letter-spacing: 0.08em;
+}
